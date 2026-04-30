@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 const links = [
   { href: "/hub",      label: "🏠 Home" },
   { href: "/kit",      label: "📋 AI Starter Kit" },
+  { href: "/playbook.html", label: "📖 Playbook" },
   { href: "/playground", label: "🧪 Playground" },
   { href: "/prompts",  label: "📚 Prompts" },
   { href: "/schedule.html", label: "🗓 Schedule" },
-  { href: "/playbook.html", label: "📖 Playbook" },
   { href: "/shrikant_curie_medical.html", label: "🏥 Curie Medical" },
   { href: "/recipe_keeper.html", label: "🍳 Recipe Keeper" },
 ];
