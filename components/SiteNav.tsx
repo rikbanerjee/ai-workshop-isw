@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 const links = [
   { href: "/hub",                          label: "🏠 Home" },
   { href: "/kit",                          label: "📋 AI Starter Kit" },
-  { href: "/playbook.html",               label: "📖 Playbook" },
+  { href: "/playbook.html",               label: "🛠️ Workshop" },
   { href: "/playground",                  label: "🧪 Playground" },
 { href: "/shrikant_curie_medical.html", label: "🏥 Curie Medical" },
   { href: "/recipe_keeper.html",          label: "🍳 Recipe Keeper" },
