@@ -446,7 +446,44 @@
   }
   .site-nav-link:hover { background: #f3f4f6; color: #1a1d23; }
   .site-nav-link.current { background: #eff6ff; color: #2563eb; }
-</style>
+
+  /* ── Mobile nav ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column; justify-content: center; gap: 5px;
+    width: 36px; height: 36px; padding: 6px;
+    background: none; border: 1px solid #e2e8f0;
+    border-radius: 8px; cursor: pointer; flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block; height: 2px; background: #0f172a;
+    border-radius: 2px; transition: transform 0.2s, opacity 0.2s;
+  }
+  .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none; position: absolute; top: 3.25rem; left: 0; right: 0;
+    background: #fff; border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    flex-direction: column; padding: 0.5rem 0; z-index: 49;
+  }
+  .mobile-link {
+    display: block; padding: 0.75rem 1.5rem;
+    font-size: 0.9375rem; font-weight: 500;
+    color: #0f172a; text-decoration: none;
+    transition: background 0.12s;
+    border-left: 3px solid transparent;
+  }
+  .mobile-link:hover { background: #f8fafc; }
+  .mobile-link.current { color: #2563eb; background: #eff6ff; border-left-color: #2563eb; }
+  @media (max-width: 768px) {
+    .site-nav-links { display: none !important; }
+    .nav-hamburger { display: flex !important; }
+    .mobile-menu.is-open { display: flex; }
+  }
+
+  </style>
 </head>
 <body>
 <nav class="site-nav">
@@ -461,6 +498,18 @@
     <a href="/shrikant_curie_medical.html" class="site-nav-link">🏥 Curie Medical</a>
     <a href="/recipe_keeper.html" class="site-nav-link">🍳 Recipe Keeper</a>
   </div>
+
+<button class="nav-hamburger" onclick="toggleNav(this)" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/hub" class="mobile-link">🏠 Home</a>
+  <a href="/kit" class="mobile-link">📋 AI Starter Kit</a>
+  <a href="/playbook.html" class="mobile-link">📖 Playbook</a>
+  <a href="/playground" class="mobile-link">🧪 Playground</a>
+  <a href="/prompts" class="mobile-link">📚 Prompts</a>
+  <a href="/schedule.html" class="mobile-link current">🗓 Schedule</a>
+  <a href="/shrikant_curie_medical.html" class="mobile-link">🏥 Curie Medical</a>
+  <a href="/recipe_keeper.html" class="mobile-link">🍳 Recipe Keeper</a>
+</div>
 </nav>
 
 <div style="background:var(--surface); border-bottom:1px solid var(--border);">
@@ -746,6 +795,20 @@
   <span>LEAP Collective 2026 · India Society of Worcester · 152 Main St, Shrewsbury MA</span>
   <span>Rik Banerjee &amp; Shrikant Savant · AI Workshop</span>
 </footer>
+
+
+<script>
+function toggleNav(btn) {
+  btn.classList.toggle('is-open');
+  document.getElementById('mobile-menu').classList.toggle('is-open');
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.site-nav')) {
+    document.querySelectorAll('.nav-hamburger').forEach(b => b.classList.remove('is-open'));
+    document.querySelectorAll('.mobile-menu').forEach(m => m.classList.remove('is-open'));
+  }
+});
+</script>
 
 </body>
 </html>
