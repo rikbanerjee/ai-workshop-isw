@@ -8,11 +8,14 @@ const STEPS = [
   {
     id: "vague-vs-specific",
     time: "Try-on #1",
-    title: "Vague vs. Specific",
-    subtitle: "See how precision transforms results",
-    desc: "Start vague, then make it specific. Notice how much better the output gets with context.",
-    vague: "Help me with my resume.",
-    specific: `I am a [YOUR ROLE] at a [COMPANY TYPE]. Give me 5 specific ways I could use AI to save time in my work this week. Be concrete, not generic.`,
+    title: "Vague vs. Briefed",
+    subtitle: "See how the RCTF formula transforms results",
+    desc: "Try the vague version first — notice the generic output. Then try the briefed version with Role, Context, Task, and Format filled in. Same topic, completely different result.",
+    vague: "Write an email to my customers about our sale.",
+    specific: `Role: You are a friendly local restaurant owner.
+Context: We're doing 20% off this weekend for our 5-year anniversary. Customers are regulars — families and couples for special occasions.
+Task: Write the announcement email.
+Format: Warm and personal, under 100 words, one clear call-to-action.`,
   },
   {
     id: "iteration",
@@ -21,6 +24,8 @@ const STEPS = [
     subtitle: "Role + Task + Format unlocks 80% of AI's value",
     desc: "Same topic, three levels of refinement. Edit the template below — the more specific you are, the better.",
     template: `Act as a [ROLE, e.g. career coach / marketing expert / financial advisor].
+
+Context: [BACKGROUND — e.g. I've been in this industry for 5 years / I'm a small business owner / I'm applying for my first job].
 
 Help me [TASK — be specific about what you want].
 
@@ -90,10 +95,10 @@ export default function PlaygroundPage() {
               </div>
               <div className="pg-compare-arrow">→</div>
               <div className="pg-compare-col">
-                <div className="pg-compare-label pg-label-good">Specific prompt</div>
+                <div className="pg-compare-label pg-label-good">Briefed prompt (RCTF)</div>
                 <pre className="pg-compare-text">{step.specific}</pre>
                 <button className="pg-try-btn pg-try-btn-primary" onClick={() => setPromptText(step.specific!)}>
-                  Try the specific version →
+                  Try the briefed version →
                 </button>
               </div>
             </div>
