@@ -9,7 +9,7 @@ const links = [
   { href: "/kit",                          label: "📋 AI Starter Kit" },
   { href: "/playbook.html",               label: "🛠️ Workshop" },
   { href: "/playground",                  label: "🧪 Playground" },
-{ href: "/shrikant_curie_medical.html", label: "🏥 Curie Medical" },
+{ href: "/shrikant_curie_slides.html", label: "🏥 Curie Medical" },
   { href: "/recipe_keeper.html",          label: "🍳 Recipe Keeper" },
 ];
 
